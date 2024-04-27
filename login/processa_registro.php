@@ -1,13 +1,12 @@
 <?php
 // session_start();
 
-// Conexão com o banco de dados
-$servername = "localhost";
-$username = "root";
-$password_db = "root";
-$dbname = "cpphp_ex";
-
-$conn = new mysqli($servername, $username, $password_db, $dbname);
+    // Conexão com o banco de dados
+    require_once $_SERVER['DOCUMENT_ROOT'] . '/api/conexao/MysqliConnection.php';
+    use api\conexao\MysqliConnection;
+    session_start();
+    
+    $conn = MysqliConnection::getInstance()->getConnection();
 
 // Verifica a conexão
 if ($conn->connect_error) {

@@ -1,5 +1,9 @@
 <?php
 session_start();
+$servername = "localhost";
+$username = "root";
+$password_db = "root";
+$dbname = "cpphp_ex";
 
 // Verificar se o usuário está autenticado como administrador
 if (!isset($_SESSION['user_id'])) {
@@ -7,15 +11,14 @@ if (!isset($_SESSION['user_id'])) {
     exit();
 }
 
+$conn = new mysqli($servername, $username, $password_db, $dbname);
+$sql_projetos = "SELECT * FROM projetos";
+$result_projetos = $conn->query($sql_projetos);
+
 // Processar o formulário de registro de projeto
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     
     // Conexão com o banco de dados
-    $servername = "localhost";
-    $username = "root";
-    $password_db = "root";
-    $dbname = "cpphp_ex";
-
     $conn = new mysqli($servername, $username, $password_db, $dbname);
 
     // Verifica a conexão
@@ -40,16 +43,15 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $sql_insert_projeto = "INSERT INTO projetos (user_id, data_criacao, tecnologia_associada, status, imagem) 
                            VALUES ('$user_id', '$data_criacao', '$tecnologia_associada', '$status', '$image_path')";
 
-        var_dump($sql_insert_projeto);
     if ($conn->query($sql_insert_projeto) === TRUE) {
         echo "<p>Projeto registrado com sucesso.</p>";
     } else {
         echo "Erro ao registrar projeto: " . $conn->error;
     }
 
-    // Consulta para recuperar informações de todos os projetos
-$sql_projetos = "SELECT * FROM projetos";
-$result_projetos = $conn->query($sql_projetos);
+        // Consulta para recuperar informações de todos os projetos
+    $sql_projetos = "SELECT * FROM projetos";
+    $result_projetos = $conn->query($sql_projetos);
 
     $conn->close();
 }
@@ -367,7 +369,43 @@ clear: both;
     <!-- Seção para exibir projetos -->
     <h3>Projetos Registrados:</h3>
 
-    
+
+    <table class="user-table">
+    <tr>
+        <th>id_projeto</th>
+        <th>user_id</th>
+        <th>data_criacao</th>
+        <th>tecnologia_associada</th>
+        <th>imagem</th>
+        <th>status</th>
+    </tr>
+    <?php 
+    // Verifica se o resultado da consulta está vazio
+    if ($result_projetos->num_rows > 0) {
+        // Itera sobre os resultados
+        while ($projetos = $result_projetos->fetch_object()) {
+            ?>
+            <tr>
+                <td><?php echo $projetos->id_projeto; ?></td>
+                <td><?php echo $projetos->user_id; ?></td>
+                <td><?php echo $projetos->data_criacao; ?></td>
+                <td><?php echo $projetos->tecnologia_associada; ?></td>
+                <td><?php echo $projetos->imagem; ?></td>
+                <td><?php echo $projetos->status; ?></td>
+            </tr>
+            <?php
+        }
+    } else {
+        // Caso não haja resultados
+        ?>
+        <tr>
+            <td colspan="1">Nenhum projeto encontrado.</td>
+        </tr>
+        <?php
+    }
+    ?>
+</table>
+  
 
 
 </div>

@@ -1,6 +1,8 @@
-7<?php
-include("/php/api/conexao/conexao.php");
-session_start();
+<?php
+ // Conexão com o banco de dados
+ require_once $_SERVER['DOCUMENT_ROOT'] . '/api/conexao/MysqliConnection.php';
+ use api\conexao\MysqliConnection;
+ session_start();
 
 // Verifique se o usuário está autenticado
 if (!isset($_SESSION['user_id'])) {
@@ -9,29 +11,25 @@ if (!isset($_SESSION['user_id'])) {
 }
 
 if ($_SERVER["REQUEST_METHOD"] != "POST") {
-// Verifique se o ID da consulta foi especificado na URL
-if (!isset($_GET['id'])) {
-//f (!isset($_POST['id'])) {
-    die("ID de consulta não especificado.");
-}
+    // Verifique se o ID da consulta foi especificado na URL
+    if (!isset($_GET['id'])) {
+    //f (!isset($_POST['id'])) {
+        die("ID de consulta não especificado.");
+    }
 
-// Recupere o ID da consulta da URL
-$id_consulta = $_GET['id'];
-
+    // Recupere o ID da consulta da URL
+    $id_consulta = $_GET['id'];
 }
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $id_consulta = $_POST['id'];
 }
 
-// Exibe o ID da consulta (apenas para fins de depuração)
-echo "ID da Consulta: " . $id_consulta;
-
-
 // Recupere os detalhes da consulta com base no ID
 $user_id = $_SESSION['user_id'];
 
 // Consulta para obter os detalhes da consulta com base no ID da consulta e no ID do usuário
+$conn = MysqliConnection::getInstance()->getConnection();
 $sql = "SELECT * FROM consultas WHERE id = $id_consulta AND user_id = '$user_id'";
 $result = $conn->query($sql);
 
@@ -44,34 +42,52 @@ if ($result->num_rows == 1) {
     exit();
 }
 
-$conn->close();
-
 // Processamento do formulário de edição
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Recupere os novos dados da consulta do formulário
+
     $nova_data = $_POST['data'];
     $novo_horario = $_POST['horario'];
-
-    // Valide os dados da consulta conforme necessário
-
-    // Conecte-se ao banco de dados novamente
-    $conn = new mysqli($servername, $username, $password_db, $dbname);
+    $novo_data_hora = $nova_data . ' ' . $novo_horario;
+    $conn = MysqliConnection::getInstance()->getConnection();
 
     if ($conn->connect_error) {
         die("Conexão falhou: " . $conn->connect_error);
     }
 
-    // Atualize os dados da consulta no banco de dados
-    $sql = "UPDATE consultas SET data = '$nova_data', horario = '$novo_horario' WHERE id = $id_consulta AND user_id = '$user_id'";
+    $data_atual = new DateTime();
+    
+    $data_consulta = new DateTime($novo_data_hora);
+    
+    //Calcula a diferenca entre as duas datas
+    $diferenca = $data_consulta->diff($data_atual);
 
-    if ($conn->query($sql) === TRUE) {
-        echo "Consulta atualizada com sucesso.";
+    //Converte a diferenca de dias para hora
+    $diferenca_horas = $diferenca->days*24;
+
+    // Verificar se a diferença é menor que 72 horas (ou seja, 3 dias)
+    if ($diferenca_horas < 72) {
+        echo "Você não pode editar esta consulta porque já se passaram menos de 72 horas desde a data da consulta.";
+        // Encerrar o script ou redirecionar o usuário para uma página de erro
+        exit;
     } else {
-        echo "Erro ao atualizar a consulta: " . $conn->error;
-    }
 
-    $conn->close();
+        // Atualize os dados da consulta no banco de dados
+        $sql = "UPDATE consultas SET data = '$nova_data', horario = '$novo_horario' WHERE id = $id_consulta AND user_id = '$user_id'";
+
+        if ($conn->query($sql) === TRUE) {
+            echo "Consulta atualizada com sucesso.";
+        } else {
+            echo "Erro ao atualizar a consulta: " . $conn->error;
+        }
+
+
+        $data = $nova_data;
+        $horario = $novo_horario;
+    }
 }
+
+$conn->close();
 ?>
 
 <!DOCTYPE html>

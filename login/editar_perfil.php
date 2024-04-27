@@ -39,7 +39,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $novo_password = $_POST['novo_password'];
 
     // Consulta para atualizar os dados do usuário
-    $sql_update = "UPDATE utilizadores SET nome = '$novo_nome', apelido = '$novo_password' WHERE user_id = $user_id";
+    $sql_update = "UPDATE utilizadores SET nome = '$novo_nome', password = '$novo_password' WHERE user_id = $user_id";
     
     if ($conn->query($sql_update) === TRUE) {
         echo "Dados atualizados com sucesso.";
@@ -69,7 +69,7 @@ $conn->close();
         <label for="novo_nome">Novo Nome:</label>
         <input type="text" id="novo_nome" name="novo_nome" value="<?php echo $row['nome']; ?>" required><br><br>
 
-        <label for="novo_password">Novo apelido:</label>
+        <label for="novo_password">Password:</label>
         <input type="password" id="novo_password" name="novo_password" value="<?php echo $row['password']; ?>" required><br><br>
 
        

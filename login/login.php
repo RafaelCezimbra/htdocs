@@ -1,4 +1,5 @@
 <?php
+ // Conexão com o banco de dados
 require_once $_SERVER['DOCUMENT_ROOT'] . '/api/conexao/MysqliConnection.php';
 use api\conexao\MysqliConnection;
 session_start();
@@ -8,7 +9,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     $user_name = $_POST["user_name"];
     $password = $_POST["password"];
-    
+
     // Consulta para verificar as credenciais do usuário
     $sql = "SELECT user_id, user_type FROM utilizadores WHERE user_name = '$user_name' AND password = '$password'";
     $result = $conn->query($sql);
