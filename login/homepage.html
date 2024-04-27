@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <title>Homepage</title>
+
+    <link rel="stylesheet" href="./style.css">
+
+    <script src="https://kit.fontawesome.com/d132031da6.js" crossorigin="anonymous"></script>
+
+    <style>
+        body{
+    width: 100%;
+    padding: 0px;
+    margin: 0px;
+    padding-top: 60px;
+}
+/* INICIO MENU */
+.menu{
+    background-image: linear-gradient(to right, #1D1D1D,#787474,#e1dbdb);
+    width: 100%;
+    height: 10vh;
+    text-align: center;
+    display: flex;
+    justify-content: space-around; 
+    align-items: center; 
+    box-sizing: border-box;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1;
+}
+
+.menu-items{
+    width: 100%;
+    list-style: none; 
+    padding: 0;
+    margin: 0;
+    word-spacing: 20px;
+}
+
+.menu-items > li {
+    color: white;
+    font-size: 1.4em;
+    text-decoration: none;
+    width: auto;
+    display: inline-block;
+}
+.menuE{
+    color: white;
+    text-decoration: none;
+    letter-spacing: normal;
+
+}
+.menuE:hover{
+    color: orange;
+}
+
+.search{
+    margin-right: 2.1%;
+    color: white;
+    font-size: 1.2em;
+}
+
+.search:hover{
+    color: orange;
+}
+.search > li{
+    list-style: none;
+}
+
+/* FIM MENU */
+
+
+/* bodyhtml*/
+
+.footer{
+    background-color:#787474;
+}
+
+.header{
+    background-color: #e6e6e6;
+    width: 100%;
+}
+
+
+.footer{
+    background-color: rgba(219, 219, 219, 0.733);
+    padding: 40px;
+    margin-bottom: 0;
+}
+#footer{
+    text-align: center;
+    font-size: 12px;
+    padding-top: 20px;
+}
+/* PARTS*/
+
+#about{
+    text-align:center;
+    margin-left: 20px;
+    margin-right: 20px;
+    font-family: helvetica,sans-serif;
+    font-size: 20px;
+    padding-bottom: 20px;
+    padding-top: 10px;
+}
+
+.header-image{
+    background-color: #000;
+    text-align: center;
+    width: 100%;
+}
+.footer{
+    background-color:#787474;
+    padding-top:  50px;
+    margin-bottom: 0;
+}
+.first{
+    text-align: center;
+    font-size: 40px;
+    padding-top: 20px;
+}
+
+.redes-sociais{
+    text-align: center;
+    border-bottom: none;
+}
+
+i.fab.fa-instagram-square, .fas.fa-envelope{
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+i.fab.fa-instagram-square, .fab.fa-facebook-f, .fab.fa-twitter-square, .fas.fa-envelope{
+    color: black;
+    font-size: 30px;
+}
+
+i.fab.fa-facebook-fhover{
+    color: orange;
+}
+#copy{
+    color: #fff;
+    text-decoration: none;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: small;
+    text-align: right;
+    padding-right: 30px;
+    padding-bottom: 17px;
+}
+#caixa {
+    width: 100%;
+    height: 50%;
+    text-align: center;
+    border: 1px solid rgb(206, 255, 10);
+    background-color: rgb(248, 97, 97);
+} 
+#caixa2{
+    text-decoration: none;
+    color: white;
+}
+    /* FIM bodyhtml*/
+
+    /*Início price*/
+.orcamentoum, .orcamentodois{
+    text-align: center;
+}
+.pricebody{
+    background-color: rgb(187, 193, 193);
+}
+
+    </style>
+
+</head>
+<body onload = "setTimeout(() => {alert('This page is for demonstration purposes only, please return to the menu and register.')}, 5000)">
+    
+
+    <div class="menu">
+        <ul class="menu-items">
+            <li><a href="./index.html" data-text="HOME" class="menuE">HOME</a></li>
+            <li><a href="./portfolio.html" data-text="PORTFOLIO" class="menuE">PORTFÓLIO</a></li>
+            <li><a href="./price.html" data-text="PRICE" class="menuE">ORÇAMENTO</a></li>
+            <li><a href="./contact.html" data-text="CONTACT" class="menuE">CONTACTO</a></li>          
+        </ul>
+        <div class="search">
+            <li><a href="#search" class="search" class="menuE"><i class="fas fa-search"></i></a></li>
+        </div>
+    </div>
+
+    <div class="header">
+
+                <h1 class="first">Sobre</h1>
+                <p id="about">John Doe é um pseudónimo coletivo que é usado quando o nome verdadeiro <br>de uma pessoa é desconhecido ou é intencionalmente ocultado.<br>
+                    Em segunfo lugar, esses nomes também são frequentemente usados para se referir<br> a um hipotético "everyman" (homem comum) em outros contextos.
+                </p>
+
+    </div>
+
+    <div class="header-image">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSvCyusSj1cIKUozxqn1ZvCbyrXQ0QFbM_Q_w&usqp=CAU" alt="logo">
+    </div>
+
+    <div id="caixa">
+        <a id="caixa2" href="#" onclick="carregar()">Click aqui para ver as notícias</a>
+    </div>
+
+
+    <div class="footer">
+
+        <div class="redes-sociais">
+            <a href="https://www.facebook.com" id="hh" target="_blank"><i class="fab fa-facebook-f"></i></a>
+            <a href="https://www.instagram.com" class="hh" target="_blank"><i class="fab fa-instagram-square"></i></a>
+            <a href="https://twitter.com/?lang=pt_pt" class="hh" target="_blank"><i class="fab fa-twitter-square"></i></a>
+            <a href="mailto:contato@johndoeficial.com.br" class="hh" target="_blank"><i class="fas fa-envelope"></i></a>
+        </div>
+
+        <p id="footer"> <b>Powered by Rafael Cezimbra<b></p>
+        <p id="copy">Copyright © 2024 - Todos os direitos reservados</p>
+
+
+    </div>
+
+
+    <script src="index.js"></script>
+
+</body>
+</html>
