@@ -1,18 +1,15 @@
 <?php
-session_start();
+ // Conexão com o banco de dados
+ require_once $_SERVER['DOCUMENT_ROOT'] . '/api/conexao/MysqliConnection.php';
+ use api\conexao\MysqliConnection;
+ session_start();
+
+ $conn = MysqliConnection::getInstance()->getConnection();
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Receba os dados do formulário de login (substitua com os dados reais do formulário)
     $user_name = $_POST['user_name'];
     $password = $_POST['password'];
-
-     // Conexão com o banco de dados
-     $servername = "localhost";
-     $username = "root";
-     $password_db = "root";
-     $dbname = "cpphp_ex";
-
-    $conn = new mysqli($servername, $username, $password_db, $dbname);
 
     // Verifique a conexão
     if ($conn->connect_error) {

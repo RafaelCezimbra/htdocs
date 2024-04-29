@@ -1,9 +1,10 @@
 <?php
-session_start();
-$servername = "localhost";
-$username = "root";
-$password_db = "root";
-$dbname = "cpphp_ex";
+ // Conexão com o banco de dados
+ require_once $_SERVER['DOCUMENT_ROOT'] . '/api/conexao/MysqliConnection.php';
+ use api\conexao\MysqliConnection;
+ session_start();
+
+ $conn = MysqliConnection::getInstance()->getConnection();
 
 // Verificar se o usuário está autenticado como administrador
 if (!isset($_SESSION['user_id'])) {
@@ -11,7 +12,6 @@ if (!isset($_SESSION['user_id'])) {
     exit();
 }
 
-$conn = new mysqli($servername, $username, $password_db, $dbname);
 $sql_projetos = "SELECT * FROM projetos";
 $result_projetos = $conn->query($sql_projetos);
 
@@ -19,7 +19,7 @@ $result_projetos = $conn->query($sql_projetos);
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     
     // Conexão com o banco de dados
-    $conn = new mysqli($servername, $username, $password_db, $dbname);
+    $conn = MysqliConnection::getInstance()->getConnection();
 
     // Verifica a conexão
     if ($conn->connect_error) {

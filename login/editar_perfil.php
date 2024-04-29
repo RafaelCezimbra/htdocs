@@ -1,6 +1,13 @@
 <?php
 session_start();
 
+ // Conexão com o banco de dados
+ require_once $_SERVER['DOCUMENT_ROOT'] . '/api/conexao/MysqliConnection.php';
+ use api\conexao\MysqliConnection;
+ session_start();
+
+ $conn = MysqliConnection::getInstance()->getConnection();
+
 // Verificar a autenticação do usuário
 if (!isset($_SESSION['user_id'])) {
     header("Location: login.php"); // Redireciona para a página de login se o usuário não estiver autenticado
@@ -75,5 +82,7 @@ $conn->close();
        
         <input type="submit" value="Salvar Alterações">
     </form>
+
+   
 </body>
 </html>

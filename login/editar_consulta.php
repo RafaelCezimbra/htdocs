@@ -105,7 +105,7 @@ $conn->close();
 
         <label for="horario">Novo Horário da Consulta:</label>
         <input type="time" id="horario" name="horario" value="<?php echo $horario; ?>" required><br><br>
-        <input type="text" id="data" name="id" value="<?php echo $id_consulta; ?>" required><br><br>
+        <input type="text" id="data" name="id" style="display: none;" value="<?php echo $id_consulta; ?>" required><br><br>
         <input type="submit" value="Salvar Alterações">
     </form>
 

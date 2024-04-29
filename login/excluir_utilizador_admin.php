@@ -1,5 +1,10 @@
 <?php
-session_start();
+ // Conexão com o banco de dados
+ require_once $_SERVER['DOCUMENT_ROOT'] . '/api/conexao/MysqliConnection.php';
+ use api\conexao\MysqliConnection;
+ session_start();
+
+ $conn = MysqliConnection::getInstance()->getConnection();
 
 // Verificar se o usuário está autenticado como administrador
 if (!isset($_SESSION['user_id'])) {
@@ -14,14 +19,6 @@ if (!isset($_GET['user_id'])) {
 
 // Recuperar o ID do usuário da URL
 $user_id = $_GET['user_id'];
-
-    // Conexão com o banco de dados
-    $servername = "localhost";
-    $username = "root";
-    $password_db = "root";
-    $dbname = "cpphp_ex";
-
-$conn = new mysqli($servername, $username, $password_db, $dbname);
 
 // Verificar a conexão
 if ($conn->connect_error) {

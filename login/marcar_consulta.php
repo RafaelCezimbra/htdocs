@@ -1,5 +1,10 @@
 <?php
-session_start();
+ // Conexão com o banco de dados
+ require_once $_SERVER['DOCUMENT_ROOT'] . '/api/conexao/MysqliConnection.php';
+ use api\conexao\MysqliConnection;
+ session_start();
+
+ $conn = MysqliConnection::getInstance()->getConnection();
 
 // Verifique se o usuário está autenticado
 if (!isset($_SESSION['user_id'])) {
@@ -13,14 +18,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $horario = $_POST['horario'];
 
     // Valide os dados da consulta conforme necessário
-    
-    // Conexão com o banco de dados
-    $servername = "localhost";
-    $username = "root";
-    $password_db = "root";
-    $dbname = "cpphp_ex";
-
-    $conn = new mysqli($servername, $username, $password_db, $dbname);
 
     if ($conn->connect_error) {
         die("Conexão falhou: " . $conn->connect_error);
