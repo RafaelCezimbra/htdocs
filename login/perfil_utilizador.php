@@ -421,9 +421,6 @@ input.meu-botao-submit:hover {
 
 </table>
 
-<!-- ... seu código existente ... -->
-
-
     <a href="index.php" id="botaoSair">Logout</a>
 
 

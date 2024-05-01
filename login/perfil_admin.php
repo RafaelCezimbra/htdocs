@@ -206,7 +206,7 @@ form {
 
 
 #botaoSair{
-  background-color: #FEB07D;
+  background-color: #f8f8f8;
   border: none;
   border-radius: 10px;
   color:#000000;
@@ -214,9 +214,16 @@ form {
   margin-top: 10%;
   float: right;
   clear: both;
+  margin-bottom: 10px;
+  
+  }
+
+  #botaoSair:hover {
+    background: #ccc;
+    border-radius: 10px;
+    -ms-transform: scale(1.1);
+    transform: scale(1.1);
 }
-
-
     </style>
 </head>
 
@@ -368,7 +375,7 @@ form {
 </table>
   
 
-
+    <a href="index.php" id="botaoSair">Logout</a>
 </div>
 
 </body>
