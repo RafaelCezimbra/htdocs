@@ -61,3 +61,29 @@ a#registo{
 color: #3E4C59;
 font-weight: bold;
 }
+
+/*        body { usa do no editar perfil do utilizador
+            background-color: rgba(211, 211, 211, 1);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .form-container {
+            text-align: center;
+        }
+        .message-container {
+            text-align: center;
+            position: absolute;
+            top: 50px; /* ajuste a altura conforme necessário */
+            width: 100%;
+        }
+
+        input[type="submit"]:hover {
+            background: #ccc;
+            border-radius: 10px;
+            -ms-transform: scale(1.1);
+            transform: scale(1.1);
+        }
+

@@ -89,26 +89,68 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 $conn->close();
 ?>
-
 <!DOCTYPE html>
 <html lang="pt">
 <head>
     <meta charset="utf-8">
     <title>Editar Consulta</title>
+    <style>
+        body {
+            background-color: rgba(211, 211, 211, 1);
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .container {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+
+        form {
+            text-align: center;
+        }
+
+        a {
+            text-decoration: none;
+            margin-left: 10px;
+            border: 1px solid white;
+            border-radius: 10px;
+            padding: 5px;
+            color: black;
+        }
+
+        input[type="submit"]:hover {
+            background: white;
+            border-radius: 10px;
+            -ms-transform: scale(1.1);
+            transform: scale(1.1);
+        }
+
+    </style>
 </head>
 <body>
-    <h2>Editar Consulta</h2>
+    <div class="container">
+        <h2>Editar Consulta</h2>
 
-    <form method="POST" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>">
-        <label for="data">Nova Data da Consulta:</label>
-        <input type="date" id="data" name="data" value="<?php echo $data; ?>" required><br><br>
+        <form method="POST" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>">
+            <label for="data">Nova Data da Consulta:</label>
+            <input type="date" id="data" name="data" value="<?php echo $data; ?>" required><br><br>
 
-        <label for="horario">Novo Horário da Consulta:</label>
-        <input type="time" id="horario" name="horario" value="<?php echo $horario; ?>" required><br><br>
-        <input type="text" id="data" name="id" style="display: none;" value="<?php echo $id_consulta; ?>" required><br><br>
-        <input type="submit" value="Salvar Alterações">
-    </form>
+            <label for="horario">Novo Horário da Consulta:</label>
+            <input type="time" id="horario" name="horario" value="<?php echo $horario; ?>" required><br><br>
+            <input type="text" id="data" name="id" style="display: none;" value="<?php echo $id_consulta; ?>" required><br><br>
+            <input type="submit" value="Salvar Alterações">
+        </form>
 
-    <p><a href="perfil_utilizador.php">Voltar para o Perfil</a></p>
+        <p><a href="perfil_utilizador.php">Voltar para o Perfil</a></p>
+    </div>
 </body>
 </html>
+

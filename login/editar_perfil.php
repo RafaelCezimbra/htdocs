@@ -49,11 +49,15 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $sql_update = "UPDATE utilizadores SET nome = '$novo_nome', password = '$novo_password' WHERE user_id = $user_id";
     
     if ($conn->query($sql_update) === TRUE) {
+        echo '<div class="message-container">';
         echo "Dados atualizados com sucesso.";
         // Você pode redirecionar o usuário de volta para a página de perfil aqui
-        echo '<a href="perfil_utilizador.php">Voltar ao Perfil</a>';
+        echo '<br><a href="perfil_utilizador.php">Voltar ao Perfil</a>';
+        echo '</div>';
     } else {
+        echo '<div class="message-container">';
         echo "Erro ao atualizar os dados: " . $conn->error;
+        echo '</div>';
     }
 }
 
@@ -64,25 +68,47 @@ $conn->close();
 <html>
 <head>
     <title>Editar Perfil</title>
+    <style>
+        body {
+            background-color: rgba(211, 211, 211, 1);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .form-container {
+            text-align: center;
+        }
+        .message-container {
+            text-align: center;
+            position: absolute;
+            top: 50px; /* ajuste a altura conforme necessário */
+            width: 100%;
+        }
+
+        input[type="submit"]:hover {
+            background: white;
+            border-radius: 10px;
+            -ms-transform: scale(1.1);
+            transform: scale(1.1);
+        }
+
+    </style>
 </head>
 <body>
-    <h2>Editar Perfil</h2>
-    
-    <?php
-    // Exibir o formulário de edição aqui
-    ?>
+    <div class="form-container">
+        <h2>Editar Perfil</h2>
 
-    <form method="POST" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>">
-        <label for="novo_nome">Novo Nome:</label>
-        <input type="text" id="novo_nome" name="novo_nome" value="<?php echo $row['nome']; ?>" required><br><br>
+        <form method="POST" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>">
+            <label for="novo_nome">Novo Nome:</label>
+            <input type="text" id="novo_nome" name="novo_nome" value="<?php echo $row['nome']; ?>" required><br><br>
 
-        <label for="novo_password">Password:</label>
-        <input type="password" id="novo_password" name="novo_password" value="<?php echo $row['password']; ?>" required><br><br>
+            <label for="novo_password">Password:</label>
+            <input type="password" id="novo_password" name="novo_password" value="<?php echo $row['password']; ?>" required><br><br>
 
-       
-        <input type="submit" value="Salvar Alterações">
-    </form>
-
-   
+            <input type="submit" value="Salvar Alterações">
+        </form>
+    </div>
 </body>
 </html>

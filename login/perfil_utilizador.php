@@ -70,7 +70,7 @@ $conn->close();
 
 body {
     font-family: 'Montserrat', sans-serif;
-    background-color: #30404A;
+    background-color: rgba(211, 211, 211, 1);
 }
 
 h1 {
@@ -85,11 +85,17 @@ h4 {
   font-size: 32px;
 }
 
-.caixa1 {
-  background-color: #A8D8ED;
+.caixa1.row {
+  width: 60%;
+  margin:auto;
+  margin-top: 5%;
+  border-radius:50px;
+  background-color: RGBA( 248, 248, 255, 1 );
 }
 
-.col-6{width:50%;}
+.col-6{
+    width:40%;
+}
 
 h2 {
     color: #ffffff;
@@ -109,8 +115,11 @@ h4 {
     margin-top: 25px;
 }
 label {
-    color: #ffffff;
-font-size:14px;
+    font-family: 'Oswald', sans-serif;
+    font-family: bold;
+    letter-spacing: 1px;
+    color: black;
+    font-size:12px;
 }
 input[type="text"],
 input[type="password"] {
@@ -121,15 +130,19 @@ input[type="password"] {
     border-radius: 3px;
 }
 input[type="submit"] {
-    background-color: #007bff;
+    background-color: white;
     color: #fff;
     padding: 10px 20px;
     border: none;
     border-radius: 3px;
     cursor: pointer;
+    margin-left: 0;
 }
 input[type="submit"]:hover {
-    background-color: #0056b3;
+    background: #ccc;
+    border-radius: 10px;
+    -ms-transform: scale(1.1);
+    transform: scale(1.1);
 }
 #conta {
   color: #3E4C59;
@@ -172,13 +185,13 @@ a#registo{
 }
 
 #perfil-h1{
-  color: #A8D8ED;
-  font-size: 62px;
+  color:black;
+  font-size: 72px;
   text-align:center;
 }
 
 #perfil-h4 {
-    color: #A8D8ED;
+    color:black;
     font-size: 32px;
     text-align:center;
 
@@ -221,22 +234,35 @@ input.meu-botao-submit:hover {
 }
 
 #botaoSair{
-  background-color: #FEB07D;
+  background-color: #f8f8f8;
   border: none;
   border-radius: 10px;
   color:#000000;
   padding:10px 20px;
   margin-top: 10%;
   float: right;
-clear: both;
+  clear: both;
+  margin-bottom: 10px;
+  
+  }
+
+  #botaoSair:hover {
+    background: #ccc;
+    border-radius: 10px;
+    -ms-transform: scale(1.1);
+    transform: scale(1.1);
 }
+
+  img{
+    padding-top: 30%;
+  }
 
 
     </style>
 </head>
 <body class="p-3 m-0 border-0 bd-example m-0 border-0">
 
-    <h1 id="perfil-h1">Perfil do Utilizador</h1>
+    <h1 id="perfil-h1">Seu Perfil</h1>
     <h4 id="perfil-h4">Olá <?php echo $nome; ?>! </h4>
 
     <div class="caixa1 row">
@@ -248,7 +274,7 @@ clear: both;
 
 
 
-    <img src="imagens/user.jpg" alt="persona" width="100%" height="auto" style="border-radius:50px 0px 0px 50px;">
+    <img src="imagens/user.jpg" alt="persona" width="100%" height="auto";>
 
 
     <?php

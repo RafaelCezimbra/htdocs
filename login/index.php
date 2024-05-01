@@ -33,7 +33,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
         exit();
     } else {
-        $login_error = "Nome de utilizador ou senha incorretos.";
+        $login_error = "Username or password incorrect.";
     }
 
     $conn->close();
@@ -119,8 +119,8 @@ h4{
 
 
 .error-message {
-    color: #ACD7F2;
-    font-size: 24px;
+    color: red;
+    font-size: 18px;
     margin-top: 25px;
 }
 label {

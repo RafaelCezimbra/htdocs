@@ -42,10 +42,23 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <head>
     <meta charset="utf-8">
     <title>Marcar Consulta</title>
+    <style>
+        body {
+            background-color: rgba(211, 211, 211, 1);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        p {
+            text-align: center;
+            margin-left: 10px;
+        }
+    </style>
 </head>
 <body>
-
- 
     <p><a href="perfil_utilizador.php">Voltar para o Perfil</a></p>
 </body>
 </html>

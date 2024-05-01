@@ -89,13 +89,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 body {
     font-family: 'Montserrat', sans-serif;
-    background-color: #30404A;
-}
-
-h1 {
-  color: #30404A;
-  font-family: 'Oswald', sans-serif;  
-  font-size: 96px;
+    background-color: rgba(211, 211, 211, 1);
 }
 
 h4 {
@@ -104,16 +98,17 @@ h4 {
   font-size: 32px;
 }
 
-.caixa1 {
-  background-color: #A8D8ED;
-}
+.caixa1.row {
+  width: 60%;
+  margin:auto;
+  margin-top: 5%;
+  border-radius:50px;
+  background-color: RGBA( 248, 248, 255, 1 );
+}   
 
 .col-6{width:50%;}
 .col-4{width:25%;}
 .col-8{width:75%;}
-
-
-
 
 h2 {
     color: #ffffff;
@@ -133,8 +128,9 @@ h4 {
     margin-top: 25px;
 }
 label {
-    color: #ffffff;
-font-size:14px;
+    color: black;
+    font-size:14px;
+    font-family: 'Montserrat', sans-serif;
 }
 input[type="text"],
 input[type="password"] {
@@ -145,19 +141,19 @@ input[type="password"] {
     border-radius: 3px;
 }
 input[type="submit"] {
-    background-color: #007bff;
-    color: #fff;
+    background-color: white;
+    color: black;
     padding: 10px 20px;
-    border: none;
+    border:1px solid #ccc;
     border-radius: 3px;
     cursor: pointer;
 }
 input[type="submit"]:hover {
-    background-color: #0056b3;
+    background-color: #ccc;
 }
 #conta {
   color: #3E4C59;
-margin-top: 25px;}
+  margin-top: 25px;}
 
 form {
   /* width:50%; */
@@ -168,22 +164,8 @@ form {
   /* margin-top: 25px; */
 }
 
-button.btn.btn-primary.meu-botao {
-  background-color: #FEB07D;
-  border: none;
-  border-radius: 10px;
-  color:#000000;
-  position: relative;
-  margin-left:77%;
-}
-
-a#registo{
-  color: #3E4C59;
-  font-weight: bold;
-}
-
 .caixa1.row {
-  width:70%;
+  width:90%;
   margin:auto;
   margin-top: 3%;
   border-radius:50px;
@@ -196,13 +178,14 @@ a#registo{
 }
 
 #perfil-h1{
-  color: #A8D8ED;
+  font-family: 'Oswald', sans-serif;  
+  color: black;
   font-size: 62px;
   text-align:center;
 }
 
 #perfil-h4 {
-    color: #A8D8ED;
+    color: black;
     font-size: 32px;
     text-align:center;
 
@@ -221,28 +204,6 @@ a#registo{
     text-align: left;
 }
 
-.user-table th {
-    /* background-color: #f2f2f2; */
-}
-
-input.meu-botao-submit {
-    background-color: rgba(0,0,0,0);
-    color: #3E4C59;
-    font-weight: bold;
-    font-size: 16px;
-    font-family: 'Montserrat', sans-serif;
-text-decoration: underline;
-float: right;
-clear: both;
-    
-    /* padding: 10px 20px;
-    cursor: pointer; */
-}
-
-input.meu-botao-submit:hover {
-    background-color: rgba(0,0,0,0);
-
-}
 
 #botaoSair{
   background-color: #FEB07D;
@@ -252,7 +213,7 @@ input.meu-botao-submit:hover {
   padding:10px 20px;
   margin-top: 10%;
   float: right;
-clear: both;
+  clear: both;
 }
 
 

@@ -24,7 +24,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $sql_update = "UPDATE utilizadores SET nome = '$nome', apelido = '$apelido', user_name = '$user_name', email = '$email' WHERE user_id = $user_id";
 
     if ($conn->query($sql_update) === TRUE) {
-        echo "Dados do usuário atualizados com sucesso.";
+        echo "A successful update to the user's data.";
     } else {
         echo  "Erro na atualização: " . $conn->error;
     }
@@ -70,7 +70,7 @@ $conn->close();
     }
 
     body {
-    background-image: url(imagens/img5.jpg);
+    background-color: rgba(211, 211, 211, 1);
     background-repeat: no-repeat;
     background-size: 100%;
     margin:0;
@@ -105,7 +105,7 @@ $conn->close();
 
     input[type="text"],input[type="email"],
     input[type="password"] {
-    width: 60%;
+    width: 50%;
     padding: 10px;
     margin: 5px 0;
     border: 1px solid #ccc;
@@ -127,7 +127,7 @@ $conn->close();
         margin:auto;
         margin-top: 5%;
         border-radius:50px;
-        background-color:#808080;
+        background-color: RGBA( 248, 248, 255, 1);
         display: flex; align-items: center; justify-content: center; 
     }
 

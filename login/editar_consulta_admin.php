@@ -52,22 +52,61 @@ $conn->close();
 <head>
     <meta charset="utf-8">
     <title>Editar Consulta</title>
+    <style>
+        body {
+            background-color: rgba(211, 211, 211, 1);
+            margin: 0;
+        }
+
+        .container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 20px;
+            box-sizing: border-box;
+            flex-direction: column;
+        }
+
+        form {
+            text-align: center;
+        }
+
+        a {
+            text-decoration: none;
+            margin-left: 10px;
+            border: 1px solid white;
+            border-radius: 10px;
+            padding: 5px;
+            color: black;
+        }
+
+        input[type="submit"]:hover {
+            background: white;
+            border-radius: 10px;
+            -ms-transform: scale(1.1);
+            transform: scale(1.1);
+        }
+
+    </style>
 </head>
 <body>
-    <h2>Editar Consulta</h2>
+    <div class="container">
+        <h2>Editar Consulta</h2>
 
-    <form method="POST" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>">
-        <input type="hidden" name="consulta_id" value="<?php echo $consulta_id; ?>">
+        <form method="POST" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>">
+            <input type="hidden" name="consulta_id" value="<?php echo $consulta_id; ?>">
 
-        <label for="data">Data:</label>
-        <input type="date" id="data" name="data" value="<?php echo $data; ?>" required><br><br>
+            <label for="data">Data:</label>
+            <input type="date" id="data" name="data" value="<?php echo $data; ?>" required><br><br>
 
-        <label for="horario">Horário:</label>
-        <input type="time" id="horario" name="horario" value="<?php echo $horario; ?>" required><br><br>
+            <label for="horario">Horário:</label>
+            <input type="time" id="horario" name="horario" value="<?php echo $horario; ?>" required><br><br>
 
-        <input type="submit" value="Salvar Alterações">
-    </form>
+            <input type="submit" value="Salvar Alterações">
+        </form>
 
-    <p><a href="perfil_admin.php">Voltar para a Página do Administrador</a></p>
+        <p><a href="perfil_admin.php">Voltar a Página do Administrador</a></p>
+    </div>
 </body>
 </html>

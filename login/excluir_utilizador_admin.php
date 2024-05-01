@@ -1,4 +1,26 @@
-<?php
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="utf-8">
+    <title>Excluir Usuário</title>
+    <style>
+        body {
+            background-color: rgba(211, 211, 211, 1);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .content {
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="content">
+    <?php
  // Conexão com o banco de dados
  require_once $_SERVER['DOCUMENT_ROOT'] . '/api/conexao/MysqliConnection.php';
  use api\conexao\MysqliConnection;
@@ -47,3 +69,6 @@ if ($conn->query($sql_excluir_usuario) === TRUE) {
 
 $conn->close();
 ?>
+    </div>
+</body>
+</html>
