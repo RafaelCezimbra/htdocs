@@ -25,14 +25,14 @@ if ($_SERVER["REQUEST_METHOD"] == "GET" && isset($_GET['id'])) {
     $sql = "DELETE FROM consultas WHERE id = $consulta_id AND user_id = '$user_id'";
 
     if ($conn->query($sql) === TRUE) {
-        echo "Consulta excluída com sucesso.";
+        echo "Reunião excluída com sucesso.";
     } else {
-        echo "Erro ao excluir a consulta: " . $conn->error;
+        echo "Erro ao excluir a raunião: " . $conn->error;
     }
 
     $conn->close();
 } else {
-    echo "ID de consulta não especificado.";
+    echo "ID de reunião não especificado.";
 }
 ?>
 
@@ -40,7 +40,7 @@ if ($_SERVER["REQUEST_METHOD"] == "GET" && isset($_GET['id'])) {
 <html lang="pt">
 <head>
     <meta charset="utf-8">
-    <title>Excluir Consulta</title>
+    <title>Excluir Reunião</title>
 
     <style>
         body {

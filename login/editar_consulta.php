@@ -76,9 +76,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $sql = "UPDATE consultas SET data = '$nova_data', horario = '$novo_horario' WHERE id = $id_consulta AND user_id = '$user_id'";
 
         if ($conn->query($sql) === TRUE) {
-            echo "Consulta atualizada com sucesso.";
+            echo "Reunião atualizada com sucesso.";
         } else {
-            echo "Erro ao atualizar a consulta: " . $conn->error;
+            echo "Erro ao atualizar a reunião: " . $conn->error;
         }
 
 
@@ -93,7 +93,7 @@ $conn->close();
 <html lang="pt">
 <head>
     <meta charset="utf-8">
-    <title>Editar Consulta</title>
+    <title>Editar Reunião</title>
     <style>
         body {
             background-color: rgba(211, 211, 211, 1);
@@ -137,13 +137,13 @@ $conn->close();
 </head>
 <body>
     <div class="container">
-        <h2>Editar Consulta</h2>
+        <h2>Editar Reunião</h2>
 
         <form method="POST" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>">
-            <label for="data">Nova Data da Consulta:</label>
+            <label for="data">Nova Data da Reunião:</label>
             <input type="date" id="data" name="data" value="<?php echo $data; ?>" required><br><br>
 
-            <label for="horario">Novo Horário da Consulta:</label>
+            <label for="horario">Novo Horário da Reunião:</label>
             <input type="time" id="horario" name="horario" value="<?php echo $horario; ?>" required><br><br>
             <input type="text" id="data" name="id" style="display: none;" value="<?php echo $id_consulta; ?>" required><br><br>
             <input type="submit" value="Salvar Alterações">

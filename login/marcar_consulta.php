@@ -28,9 +28,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $sql = "INSERT INTO consultas (user_id, data, horario) VALUES ('$user_id', '$data', '$horario')";
 
     if ($conn->query($sql) === TRUE) {
-        echo "Consulta marcada com sucesso.";
+        echo "Reunião marcada com sucesso.";
     } else {
-        echo "Erro ao marcar a consulta: " . $conn->error;
+        echo "Erro ao marcar a reunião: " . $conn->error;
     }
 
     $conn->close();
@@ -41,7 +41,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <html lang="pt">
 <head>
     <meta charset="utf-8">
-    <title>Marcar Consulta</title>
+    <title>Marcar Reunião</title>
     <style>
         body {
             background-color: rgba(211, 211, 211, 1);

@@ -37,7 +37,7 @@
        
        // Verifique se o ID da consulta foi especificado na URL
        if (!isset($_GET['consulta_id'])) {
-           die("ID da consulta não especificado.");
+           die("ID da reunião não especificado.");
        }
        
        // Recupere o ID da consulta da URL
@@ -52,9 +52,9 @@
        $sql = "DELETE FROM consultas WHERE id = $consulta_id";
        
        if ($conn->query($sql) === TRUE) {
-           echo "Consulta excluída com sucesso. <a href='perfil_admin.php'>Voltar à página do administrador</a>";
+           echo "Reunião excluída com sucesso. <a href='perfil_admin.php'>Voltar à página do administrador</a>";
        } else {
-           echo "Erro ao excluir a consulta: " . $conn->error;
+           echo "Erro ao excluir a reunião: " . $conn->error;
        }
        
        $conn->close();

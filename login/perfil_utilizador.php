@@ -347,16 +347,16 @@ input.meu-botao-submit:hover {
 
     <hr>
 
-    <h3>Marcar Consulta:</h3>
+    <h3>Marcar Reunião:</h3>
     <form method="POST" action="marcar_consulta.php">
-        <label for="data">Data da Consulta:</label>
+        <label for="data">Data da Reunião:</label>
         <input type="date" id="data" name="data" required><br><br>
 
-        <label for="horario">Hora da Consulta:</label>
+        <label for="horario">Hora da Reunião:</label>
         <input type="time" id="horario" name="horario" required><br><br>
 
         <!-- Adicione campos para marcar consultas aqui -->
-        <input type="submit" value="Marcar Consulta" class="meu-botao-submit"> 
+        <input type="submit" value="Marcar Reunião" class="meu-botao-submit"> 
     </form>
 
  
@@ -366,7 +366,7 @@ input.meu-botao-submit:hover {
 
     <!-- ... seu código existente ... -->
 
-<h3 style="margin-top:20%">Consultas Agendadas</h3>
+<h3 style="margin-top:20%">Reuniões Agendadas</h3>
 <table class="user-table">
     <thead>
         <tr>

@@ -51,7 +51,7 @@ $conn->close();
 <html lang="pt">
 <head>
     <meta charset="utf-8">
-    <title>Editar Consulta</title>
+    <title>Editar Reunião</title>
     <style>
         body {
             background-color: rgba(211, 211, 211, 1);
@@ -92,7 +92,7 @@ $conn->close();
 </head>
 <body>
     <div class="container">
-        <h2>Editar Consulta</h2>
+        <h2>Editar Reunião</h2>
 
         <form method="POST" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>">
             <input type="hidden" name="consulta_id" value="<?php echo $consulta_id; ?>">
