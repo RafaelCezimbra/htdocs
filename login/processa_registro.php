@@ -85,7 +85,7 @@
         $conn->close();
         ?>
 
-        <a href="index.php" id="botaoSair">Back</a>
+        <a href="pagina_de_registro.html" id="botaoSair">Back</a>
     </div>
 </body>
 </html>
