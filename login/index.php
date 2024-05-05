@@ -58,7 +58,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     [class*="col-"] {
       float: left;
-      /* padding: 15px; */
+      
     }  
     
     .row::after {
@@ -141,12 +141,7 @@ input[type="password"] {
   margin-top: 25px;}
 
 form {
-  /* width:50%; */
   margin: auto;
-  /* background-color: #80A7BF; */
-  /* padding: 50px;
-  border-radius: 25px; */
-  /* margin-top: 25px; */
 }
 
 button.btn.btn-primary.meu-botao {
@@ -227,15 +222,13 @@ a#registo:hover{
 
       <p id="conta">Don't have an account? <a id="registo" href="pagina_de_registro.html" style="font-weight:bold">Register</a></p>
 
-      <p id="conta" style="text-align:right;margin-top:20%"><a id="registo" href="homepage.html">Continue without login 
-      <svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 256 512">
-      <path d="M246.6 278.6c12.5-12.5 12.5-32.8 0-45.3l-128-128c-9.2-9.2-22.9-11.9-34.9-6.9s-19.8 16.6-19.8 29.6l0 256c0 12.9 7.8 24.6 19.8 29.6s25.7 2.2 34.9-6.9l128-128z"/>
-      </svg></a></p>
+      <p id="conta" style="text-align:right;margin-top:20%"><a id="registo" href="homepage.html">Continue without login</a></p> 
+
 
 
     </form>
     </div>
 
 </div>
-  </body>
+</body>
 </html>

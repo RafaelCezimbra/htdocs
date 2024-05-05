@@ -72,7 +72,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     [class*="col-"] {
       float: left;
-      /* padding: 15px; */
     }  
     
     .row::after {
@@ -156,12 +155,7 @@ input[type="submit"]:hover {
   margin-top: 25px;}
 
 form {
-  /* width:50%; */
   margin: auto;
-  /* background-color: #80A7BF; */
-  /* padding: 50px;
-  border-radius: 25px; */
-  /* margin-top: 25px; */
 }
 
 .caixa1.row {
@@ -194,7 +188,6 @@ form {
 
 .user-table {
     width: 100%;
-    /* border-collapse: collapse; */
     margin-top: 20px; 
 }
 
@@ -282,7 +275,7 @@ form {
     $result_consultas = $conn->query($sql_consultas);
 
     if ($result_consultas->num_rows > 0) {
-        echo "<h3>Consultas Marcadas:</h3>";
+        echo "<h3>Reuniões Marcadas:</h3>";
         echo "<table border='1'>";
         echo "<tr><th>ID</th><th>ID do Utilizador</th><th>Data</th><th>Horário</th><th>Ações</th></tr>";
 

@@ -28,7 +28,7 @@ if ($conn->connect_error) {
 }
 
 // Supondo que você tenha uma maneira de identificar o usuário logado (por exemplo, usando uma sessão)
-$user_id = $_SESSION['user_id']; // Certifique-se de configurar a sessão corretamente
+$user_id = $_SESSION['user_id']; 
 
 // Consulta para obter os dados atuais do usuário
 $sql = "SELECT * FROM utilizadores WHERE user_id = $user_id";
@@ -51,7 +51,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if ($conn->query($sql_update) === TRUE) {
         echo '<div class="message-container">';
         echo "Dados atualizados com sucesso.";
-        // Você pode redirecionar o usuário de volta para a página de perfil aqui
         echo '<br><a href="perfil_utilizador.php">Voltar ao Perfil</a>';
         echo '</div>';
     } else {
@@ -83,7 +82,7 @@ $conn->close();
         .message-container {
             text-align: center;
             position: absolute;
-            top: 50px; /* ajuste a altura conforme necessário */
+            top: 50px; 
             width: 100%;
         }
 

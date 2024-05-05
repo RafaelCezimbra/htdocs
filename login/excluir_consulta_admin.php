@@ -2,7 +2,7 @@
 <html lang="pt">
 <head>
     <meta charset="utf-8">
-    <title>Excluir Consulta</title>
+    <title>Excluir Reunião</title>
     <style>
         body {
             background-color: rgba(211, 211, 211, 1);
